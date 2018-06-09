@@ -7,7 +7,7 @@
       <h4 class="card-title mt-2">Sign up</h4>
     </header>
     <article class="card-body">
-    <form>
+    <form #f="ngForm" (onsubmit)="onsubmit(f.value, f)">
       <div class="form-row">
         <div class="col form-group">
           <label>First name </label>   
@@ -23,31 +23,17 @@
         <input type="email" class="form-control" placeholder="">
         <small class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div> <!-- form-group end.// -->
-      <div class="form-group">
-          <label class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="gender" value="option1">
-          <span class="form-check-label"> Male </span>
-        </label>
-        <label class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="gender" value="option2">
-          <span class="form-check-label"> Female</span>
-        </label>
-      </div> <!-- form-group end.// -->
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label>City</label>
-          <input type="text" class="form-control">
+          <label>Date Of Birth</label>
+          <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+          </div>
         </div> <!-- form-group end.// -->
-        <div class="form-group col-md-6">
-          <label>Country</label>
-          <select id="inputState" class="form-control">
-            <option> Choose...</option>
-              <option>Serbia</option>
-              <option>Montenegro</option>
-              <option selected="">Bosnia and Herzegovina</option>
-              <option>Croatia</option>
-          </select>
-        </div> <!-- form-group end.// -->
+
       </div> <!-- form-row.// -->
       <div class="form-group">
         <label>Create password</label>

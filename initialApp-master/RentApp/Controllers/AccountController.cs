@@ -318,6 +318,7 @@ namespace RentApp.Controllers
                 return BadRequest(ModelState);
             }
 
+            AppUser appUser = new AppUser();
             var user = new RAIdentityUser() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);

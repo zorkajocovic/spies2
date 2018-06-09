@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AppUser } from '../models/AppUser.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  users: AppUser[];
+  constructor() {
+    this.users = [];
+   }
 
   ngOnInit() {
+  }
+
+  onSubmit(user: AppUser, form: NgForm) {
+    console.log(user);
+    this.users.push(user);
+
+    form.reset();
   }
 
 }
