@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { ServicesComponent } from './services/services.component';
+import { BackendCommunicationComponent } from './backend-communication/backend-communication.component';
 
 
 const Routes= [
@@ -15,14 +17,21 @@ const Routes= [
     path: "login",
     component: LoginComponent
   },
+
   {
     path: "register",
     component: RegisterComponent
   },
+
   {
     path: "home",
     component: HomeComponent
   },
+
+  {
+    path: "services",
+    component: ServicesComponent
+  }
   
 ]
 
@@ -32,7 +41,9 @@ const Routes= [
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ServicesComponent,
+    BackendCommunicationComponent
   ],
   imports: [
     BrowserModule,
