@@ -26,11 +26,11 @@ export class DemoServiceService {
     return Observable.throw(errorMessage);
   }
 
-   getMethodDemo(): Observable<any> {
+   getMethodDemo(): Observable<AppUser> {
     return this.httpClient.get('https://localhost:51681')
   }
 
-  postMethodDemo(newMember): Observable<any> {
+  postMethodDemo(newMember): Observable<AppUser> {
     return this.httpClient.post("https://localhost:51681", newMember)
   }
 }
