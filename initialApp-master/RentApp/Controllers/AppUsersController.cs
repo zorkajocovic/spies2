@@ -11,11 +11,11 @@ using System.Web.Http.Description;
 
 namespace RentApp.Controllers
 {
-    public class AppUserController : ApiController
+    public class AppUsersController : ApiController
     {
         private readonly IUnitOfWork unitOfWork;
 
-        public AppUserController(IUnitOfWork unitOfWork)
+        public AppUsersController(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }

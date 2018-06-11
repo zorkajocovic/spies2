@@ -123,7 +123,7 @@ namespace RentApp.Controllers
 
             return Ok();
         }
-
+        
         // POST api/Account/SetPassword
         [Route("SetPassword")]
         public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
@@ -318,7 +318,13 @@ namespace RentApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new RAIdentityUser() { UserName = model.Email, Email = model.Email };
+            AppUser appUser = new AppUser()
+            {
+                FullName = model.FullName,
+                DateOfBirth = DateTime.Parse(model.DateOfBirth)
+            };
+
+            var user = new RAIdentityUser() { UserName = model.FullName, Email = model.Email, AppUser = appUser, PasswordHash = model.Password};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

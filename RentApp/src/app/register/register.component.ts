@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
         alert("uspelo")
       },
       error => {
-        alert("nije")
+        alert("nije uspelo")
       })
 
     form.reset();

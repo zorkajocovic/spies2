@@ -25,17 +25,19 @@
       <div class="form-group col-md-6">
         <label>Date Of Birth</label>
         <div class='input-group date' id='datetimepicker1'>
-            <input type="text" class="form-control" name="dateOfBirth" ngModel/>
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
+            <input type="date" class="form-control" name="dateOfBirth" ngModel/>
         </div>
       </div> 
-
     </div> 
+
     <div class="form-group">
       <label>Create password</label>
         <input class="form-control" type="password" name="password" ngModel>
+    </div> 
+
+    <div class="form-group">
+      <label>Confirm password</label>
+        <input class="form-control" type="password" name="confirmPassword" ngModel>
     </div> 
 
       <div class="form-group">
