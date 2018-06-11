@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppUser } from '../models/AppUser.model';
 import { NgForm } from '@angular/forms';
+import { DemoServiceService } from '../demoService/demo-service.service';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +12,8 @@ import { NgForm } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   users: AppUser[];
+  service: DemoServiceService;
+
   constructor() {
     this.users = [];
    }
@@ -21,6 +24,8 @@ export class RegisterComponent implements OnInit {
   onSubmit(user: AppUser, form: NgForm) {
     console.log(user);
     this.users.push(user);
+
+    this.service.postMethodDemo(user);
 
     form.reset();
   }

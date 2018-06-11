@@ -23,7 +23,7 @@ export class BackendCommunicationComponent implements OnInit {
       .subscribe(
         data => {
           this.appUser = data;
-          alert("POST: name: " + this.appUser.name + ", surname: " + this.appUser.surname +
+          alert("POST: name: " + this.appUser.fullName +
           ", born: " + this.appUser.dateOfBirth + ", email: " + this.appUser.email + 
          "password" + this.appUser.password);
         },
@@ -32,13 +32,13 @@ export class BackendCommunicationComponent implements OnInit {
         })
   }
 
-  callPost(){
+  callPost(newMember: AppUser){
    
     this.service.postMethodDemo(newMember)
     .subscribe(
       data => {
         this.appUser = data;
-        alert("POST: name: " + this.appUser.name + ", surname: " + this.appUser.surname +
+        alert("POST: name: " + this.appUser.fullName +
          ", born: " + this.appUser.dateOfBirth + ", email: " + this.appUser.email + 
         "password" + this.appUser.password);
       },
