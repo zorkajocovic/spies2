@@ -11,11 +11,9 @@ import { DemoServiceService } from '../demoService/demo-service.service';
 
 export class RegisterComponent implements OnInit {
 
-  users: AppUser[];
-  service: DemoServiceService;
+  
 
-  constructor() {
-    this.users = [];
+  constructor(private service: DemoServiceService) {
    }
 
   ngOnInit() {
@@ -23,9 +21,14 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(user: AppUser, form: NgForm) {
     console.log(user);
-    this.users.push(user);
 
-    this.service.postMethodDemo(user);
+    this.service.postMethodDemo(user).subscribe(
+      data => {
+        alert("uspelo")
+      },
+      error => {
+        alert("nije")
+      })
 
     form.reset();
   }

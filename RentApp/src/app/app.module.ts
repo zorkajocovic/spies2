@@ -10,6 +10,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ServicesComponent } from './services/services.component';
 import { BackendCommunicationComponent } from './backend-communication/backend-communication.component';
+import { DemoServiceService } from './demoService/demo-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const Routes= [
@@ -48,9 +50,12 @@ const Routes= [
   imports: [
     BrowserModule,
     RouterModule.forRoot(Routes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DemoServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
