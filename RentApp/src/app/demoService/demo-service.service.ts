@@ -12,6 +12,7 @@ import { AppUser } from '../models/AppUser.model'
 @Injectable({
   providedIn: 'root'
 })
+
 export class DemoServiceService {
 
   constructor(private httpClient: HttpClient) { }
@@ -22,5 +23,55 @@ export class DemoServiceService {
 
   postMethodDemo(newMember): Observable<any> {
     return this.httpClient.post("http://localhost:51683/api/Account/Register", newMember)
+  }
+
+  getTheToken(user){
+
+    let headers = new HttpHeaders();
+    headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
+    
+    if(!localStorage.jwt)
+    {
+       let x = this.httpClient.post('http://localhost:51683/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
+
+      x.subscribe(
+        res => {
+          console.log(res.access_token);
+          
+          let jwt = res.access_token;
+
+          let jwtData = jwt.split('.')[1]
+          let decodedJwtJsonData = window.atob(jwtData)
+          let decodedJwtData = JSON.parse(decodedJwtJsonData)
+
+          let role = decodedJwtData.role
+
+          console.log('jwtData: ' + jwtData)
+          console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
+          console.log('decodedJwtData: ' + decodedJwtData)
+          console.log('Role ' + role)
+
+          localStorage.setItem('jwt', jwt)
+          localStorage.setItem('role', role);
+        },
+        err => {
+          console.log("Error occured");
+        }
+      );
+    }
+    else
+    {
+       let x = this.httpClient.get('http://localhost:51683/api/AppUsers') as Observable<any>
+
+      x.subscribe(
+        res => {
+          console.log(res);
+        },
+        err => {
+          console.log("Error occured");
+        }
+      );
+    }
+    
   }
 }

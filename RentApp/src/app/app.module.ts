@@ -46,7 +46,7 @@ const Routes= [
     HomeComponent,
     ServicesComponent,
     BackendCommunicationComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(Routes),

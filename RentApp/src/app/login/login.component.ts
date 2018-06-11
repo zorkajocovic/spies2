@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DemoServiceService } from '../demoService/demo-service.service';
+import { LoginModel } from '../models/login-model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private demoService: DemoServiceService) { }
 
   ngOnInit() {
   }
+
+login(user: LoginModel, form: NgForm){
+  this.demoService.getTheToken(user);
+}
 
 }
