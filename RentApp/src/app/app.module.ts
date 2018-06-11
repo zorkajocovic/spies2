@@ -9,7 +9,6 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ServicesComponent } from './services/services.component';
-import { BackendCommunicationComponent } from './backend-communication/backend-communication.component';
 import { DemoServiceService } from './demoService/demo-service.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -45,7 +44,6 @@ const Routes= [
     NavbarComponent,
     HomeComponent,
     ServicesComponent,
-    BackendCommunicationComponent
     ],
   imports: [
     BrowserModule,

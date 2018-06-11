@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DemoServiceService} from '../demoService/demo-service.service';
+import { Service } from '../models/service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-services',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesComponent implements OnInit {
 
-  constructor() { }
+  services: Service[];
+
+  constructor(private service: DemoServiceService) {  
+    this.services = [];  
+   }
+
 
   ngOnInit() {
   }
 
-}
+  allServices(path: string){
+    path = 'http://localhost:51683/api/Services';
+    this.service.getMethodDemo(path).subscribe(
+      data => {
+        this.services.push(data);
+        alert("uspelo")
+      },
+      error => {
+        alert("nije uspelo")
+      })
+    }
+    
+  }

@@ -17,8 +17,8 @@ export class DemoServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-   getMethodDemo(): Observable<any> {
-    return this.httpClient.get('http://localhost:51683')
+   getMethodDemo(path): Observable<any> {
+    return this.httpClient.get(path);
   }
 
   postMethodDemo(newMember): Observable<any> {
