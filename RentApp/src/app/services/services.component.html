@@ -1,24 +1,19 @@
-
-  <!-- Carousel Slider -->
-
-  <!-- Card -->
+ <!-- Card -->
   <div class="container container mt-4 mb-5">
       <h3 class="display-4 text-center"> Services </h3>     
       <hr class="bg-dark mb-4 w-25">
      
       <div class="row" >
-      <div *ngFor="let service of services">
-          <div class="col-md-4">
+          <div class="col-md-4" *ngFor="let service of services">
               <div class="card" >
-                  <img class="card-img-top" src="{{service.logo}}" alt="Card image cap">
+                  <img class="card-img-top" src="{{service.Logo}}" alt="Card image cap">
                   <div class="card-block p-3">
-                      <h4 class="card-title">{{service.name}}</h4>
-                      <p class="card-text">{{service.description}}}</p>
+                      <h4 class="card-title" name="Name">{{service.Name}}</h4>
+                      <p class="card-text" name="Description">{{service.Description}}</p>
                       <a href="#" class="btn btn-primary rounded-0 mb-2">Read More</a>
                   </div>
               </div>
           </div>
         </div>
-      </div>
   </div>
   <!-- Card -->

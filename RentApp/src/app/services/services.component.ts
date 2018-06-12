@@ -18,13 +18,14 @@ export class ServicesComponent implements OnInit {
 
 
   ngOnInit() {
+    this.allServices('http://localhost:51683/api/Services');
   }
 
   allServices(path: string){
-    path = 'http://localhost:51683/api/Services';
+    //path = 'http://localhost:51683/api/Services';
     this.service.getMethodDemo(path).subscribe(
       data => {
-        this.services.push(data);
+        this.services=data;
         alert("uspelo")
       },
       error => {
