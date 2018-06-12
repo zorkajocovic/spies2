@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IsSomeLogged } from '../guard/auth.logged';
 
 @Component({
   selector: 'app-navbar',
@@ -8,15 +9,25 @@ import { Component, OnInit } from '@angular/core';
 
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  loggedIn = false;
+  
+
+  constructor(private logged: IsSomeLogged) {
+    this.loggedIn = this.logged.canActivate();
+
+   }
 
   ngOnInit() {
+
   }
 
   
 logOut(){
+  debugger
   localStorage.removeItem('jwt')
   localStorage.removeItem('role');
+  //this.loggedIn = this.logged.canActivate();
+
 }
 
 }
