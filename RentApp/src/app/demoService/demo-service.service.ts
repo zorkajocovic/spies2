@@ -21,6 +21,10 @@ export class DemoServiceService {
     return this.httpClient.get(path);
   }
 
+  getMethodDemo1(): Observable<any> {
+    return this.httpClient.get('http://localhost:51683/api/Vehicles');
+  }
+
   postMethodDemo(newMember): Observable<any> {
     return this.httpClient.post("http://localhost:51683/api/Account/Register", newMember)
   }

@@ -33,6 +33,10 @@ const Routes= [
   {
     path: "services",
     component: ServicesComponent
+  },
+  {
+    path: "vehicles",
+    component: VehiclesComponent
   }
   
 ]
