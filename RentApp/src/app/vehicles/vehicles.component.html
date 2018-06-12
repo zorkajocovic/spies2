@@ -1,22 +1,28 @@
-
-
- <div class="container container mt-10 mb-5">
+<form #reserve="ngForm" (ngSubmit)="logIn(reserve.value, reserve)">
+<div class="container container mt-10 mb-5">
     <h3 class="display-4 text-center"><b> Dobrodosli!</b> </h3>     
     <hr class="bg-dark mb-4 w-25">
    
     <div class="row" >
-        <div class="col-md-7" *ngFor="let vehicle of vehicles">
+        <div class="col-md-7" *ngFor="let vehicle of vehicles; let i=index">
             <div class="card" >
                 <img class="card-img-top" src="{{vehicle.Image}}" alt="Card image cap">
                 <div class="card-block p-2">
                     <p><b>Model:</b> {{vehicle.Model}}</p>
                     <p><b>Proizvodjac:</b> {{vehicle.Producer}}</p>
                     <p><b>Godina proizvodnje:</b> {{vehicle.ProductionYear}}</p>
-                    <p><b>Opis:</b> {{vehicle.Description}}</p>                  
-                </div>
+                    <p><b>Opis:</b> {{vehicle.Description}}</p>                                   
+                </div>          
+                <li><a [routerLink]="['/vehicles/vehicles-reserve']">Reservisi</a></li>
+                <!--<input type="submit" class="btn btn-lg btn-primary btn-block" value="Reservisi"/> -->       
+                <router-outlet></router-outlet>           
             </div>
+            
         </div>
       </div>
 </div>
+</form>
+
+
 
 

@@ -12,7 +12,16 @@ import { ServicesComponent } from './services/services.component';
 import { DemoServiceService } from './demoService/demo-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+import { VehiclesReserveComponent } from './vehicles-reserve/vehicles-reserve.component'
 
+
+const ChildRoutes =
+  [
+    {
+      path: "vehicles-reserve",
+      component: VehiclesReserveComponent
+    },
+  ]
 
 const Routes= [
   {
@@ -36,7 +45,8 @@ const Routes= [
   },
   {
     path: "vehicles",
-    component: VehiclesComponent
+    component: VehiclesComponent,
+    children: ChildRoutes
   }
 ]
 
@@ -49,6 +59,7 @@ const Routes= [
     HomeComponent,
     ServicesComponent,
     VehiclesComponent,
+    VehiclesReserveComponent,
     ],
   imports: [
     BrowserModule,
