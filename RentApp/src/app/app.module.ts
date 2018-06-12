@@ -33,7 +33,6 @@ const Routes= [
     path: "services",
     component: ServicesComponent
   }
-  
 ]
 
 @NgModule({

@@ -324,7 +324,7 @@ namespace RentApp.Controllers
                 DateOfBirth = DateTime.Parse(model.DateOfBirth)
             };
 
-            var user = new RAIdentityUser() { UserName = model.Email, Email = model.Email, AppUser = appUser, PasswordHash = model.Password};
+            var user = new RAIdentityUser() { UserName = model.Email, Email = model.Email, AppUser = appUser, PasswordHash = RAIdentityUser.HashPassword(model.Password)};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
             

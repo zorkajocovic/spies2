@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';    //nije moglo da se ukljuci iz 'rxjs/Observable'
 import { AppUser } from '../models/AppUser.model'
+import { LoginModel } from '../models/login-model';
 //import 'rxjs/add/operator/catch';
 //import 'rxjs/add/operator/map';
 
@@ -25,7 +26,7 @@ export class DemoServiceService {
     return this.httpClient.post("http://localhost:51683/api/Account/Register", newMember)
   }
 
-  getTheToken(user){
+  getTheToken(user: LoginModel){
 
     let headers = new HttpHeaders();
     headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
@@ -50,9 +51,12 @@ export class DemoServiceService {
           console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
           console.log('decodedJwtData: ' + decodedJwtData)
           console.log('Role ' + role)
-
+         
           localStorage.setItem('jwt', jwt)
           localStorage.setItem('role', role);
+
+          alert("Uspjesno ste se ulogovali!");
+        
         },
         err => {
           console.log("Error occured");

@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
     this.service.postMethodDemo(user).subscribe(
       data => {
-        alert("uspelo")
+        alert("Uspesno ste se registrovali")
       },
       error => {
         alert("nije uspelo")
