@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { ServicesComponent } from './services/services.component';
 import { DemoServiceService } from './demoService/demo-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { VehiclesComponent } from './vehicles/vehicles.component';
 
 
 const Routes= [
@@ -44,6 +45,7 @@ const Routes= [
     NavbarComponent,
     HomeComponent,
     ServicesComponent,
+    VehiclesComponent,
     ],
   imports: [
     BrowserModule,
