@@ -1,7 +1,7 @@
 export class Vehicle {
     Model: string;
     Producer: string;
-    ProducerYear: number;
+    ProductionYear: number;
     Description: string;
     Image: string;
 

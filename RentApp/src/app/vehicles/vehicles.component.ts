@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicle } from '../models/vehicle';
 import { DemoServiceService } from '../demoService/demo-service.service';
+import { VehiclesReserveComponent } from '../vehicles-reserve/vehicles-reserve.component'
 
 @Component({
   selector: 'app-vehicles',
@@ -29,4 +30,5 @@ export class VehiclesComponent implements OnInit {
         alert("nije uspelo")
       })
     }
+
 }

@@ -1,4 +1,4 @@
-<form #reserve="ngForm" (ngSubmit)="logIn(reserve.value, reserve)">
+
 <div class="container container mt-10 mb-5">
     <h3 class="display-4 text-center"><b> Dobrodosli!</b> </h3>     
     <hr class="bg-dark mb-4 w-25">
@@ -15,13 +15,12 @@
                 </div>          
                 <li><a [routerLink]="['/vehicles/vehicles-reserve']">Reservisi</a></li>
                 <!--<input type="submit" class="btn btn-lg btn-primary btn-block" value="Reservisi"/> -->       
-                <router-outlet></router-outlet>           
+                <vehicle-reserve></vehicle-reserve>           
             </div>
             
         </div>
       </div>
 </div>
-</form>
 
 
 

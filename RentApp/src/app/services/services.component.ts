@@ -26,7 +26,6 @@ export class ServicesComponent implements OnInit {
     this.service.getMethodDemo(path).subscribe(
       data => {
         this.services=data;
-        alert("uspelo")
       },
       error => {
         alert("nije uspelo")
