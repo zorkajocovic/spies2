@@ -20,11 +20,7 @@ export class ServicesComponent implements OnInit {
    }
 
   ngOnInit() {
-<<<<<<< HEAD
-    this.allServices('http://localhost:51685/api/Services');
-=======
     this.allServices('http://localhost:51111/api/Services');
->>>>>>> 6cf6b1a7289e3767212638ac7d05e216af88a723
   }
 
   allServices(path: string){

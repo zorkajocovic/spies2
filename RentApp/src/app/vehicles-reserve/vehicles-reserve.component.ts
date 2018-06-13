@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DemoServiceService } from '../demoService/demo-service.service';
 import { Branchoffice } from '../models/branchoffice';
+import { NgForm } from '@angular/forms';
+import { Reservation} from '../models/reservation'
 
 @Component({
   selector: 'app-vehicles-reserve',
@@ -17,7 +19,7 @@ export class VehiclesReserveComponent implements OnInit {
 
 
   ngOnInit() {
-    this.allBranchOffices('http://localhost:51685/api/BranchOffice');
+    this.allBranchOffices('http://localhost:51111/api/BranchOffice');
   }
 
   allBranchOffices(path: string){
@@ -29,4 +31,13 @@ export class VehiclesReserveComponent implements OnInit {
         alert("nije uspelo")
       })
     }
+
+
+    log = '';
+
+  logDropdown(id: number): void {
+    const NAME = this.Branchiffices.find((item: any) => item.id === +id).Address;
+    this.log += `Value ${NAME} was selected\n`;
+
+  
 }
