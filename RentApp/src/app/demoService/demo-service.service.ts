@@ -19,24 +19,16 @@ export class DemoServiceService {
   private messageSource = new BehaviorSubject<boolean>(false);
   currentLoginState = this.messageSource.asObservable();
 
-  private serviceId = new BehaviorSubject<number>(1);
-  currentServiceId = this.serviceId.asObservable();
-
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   changeLoginState(state: boolean){
     this.messageSource.next(state);
   }
   
-  choosenService(id: number){
-    this.messageSource
-  }
-
    getMethodDemo(path): Observable<any> {
     return this.httpClient.get(path);
   }
   
-
   postMethodDemo(newMember): Observable<any> {
     return this.httpClient.post("http://localhost:51111/api/Account/Register", newMember)
   }
@@ -49,8 +41,12 @@ export class DemoServiceService {
     if(!localStorage.jwt)
     {
        let x = this.httpClient.post('http://localhost:51111/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
+<<<<<<< HEAD
 
       x.subscribe(
+=======
+    x.subscribe(
+>>>>>>> b1600ef3987fbc3ac6f79b29296108af09ff586b
         res => {
           console.log(res.access_token);
           
@@ -61,11 +57,6 @@ export class DemoServiceService {
           let decodedJwtData = JSON.parse(decodedJwtJsonData)
 
           let role = decodedJwtData.role
-
-          console.log('jwtData: ' + jwtData)
-          console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
-          console.log('decodedJwtData: ' + decodedJwtData)
-          console.log('Role ' + role)
 
           localStorage.setItem('jwt', jwt)
           localStorage.setItem('role', role);

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/demo.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -13,9 +14,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ServicesComponent } from './services/services.component';
 import { DemoServiceService } from './demoService/demo-service.service';
-import { HttpClientModule } from '@angular/common/http';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { VehiclesReserveComponent } from './vehicles-reserve/vehicles-reserve.component'
+import { ProfileComponent } from './profile/profile.component';
 import { IsSomeLogged } from './guard/auth.logged';
 import { IsAdmin } from './guard/auth.admin';
 import { IsManager } from './guard/auth.manager';
@@ -54,7 +55,11 @@ const Routes= [
     path: "services/:Id",
     component: VehiclesComponent,
     children: ChildRoutes
-  }
+  },
+  {
+    path: "profile",
+    component: ProfileComponent
+  },
 
 ]
 
@@ -67,7 +72,8 @@ const Routes= [
     HomeComponent,
     ServicesComponent,
     VehiclesComponent,
-    VehiclesReserveComponent,
+    ProfileComponent,
+    VehiclesReserveComponent
     ],
   imports: [
     BrowserModule,
