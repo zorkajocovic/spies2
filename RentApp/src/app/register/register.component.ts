@@ -11,17 +11,19 @@ import { DemoServiceService } from '../demoService/demo-service.service';
 
 export class RegisterComponent implements OnInit {
 
-  
+  roles: any = ["Client", "Manager"];
+  selectedRole: string;
 
   constructor(private service: DemoServiceService) {
+  
    }
 
   ngOnInit() {
   }
 
   onSubmit(user: AppUser, form: NgForm) {
-    console.log(user);
-
+    debugger
+    user.role = this.selectedRole;
     this.service.postMethodDemo(user).subscribe(
       data => {
         alert("Uspesno ste se registrovali")
@@ -33,4 +35,7 @@ export class RegisterComponent implements OnInit {
     form.reset();
   }
 
+  radioChangeHandler($event){
+    this.selectedRole = $event;
+  }
 }

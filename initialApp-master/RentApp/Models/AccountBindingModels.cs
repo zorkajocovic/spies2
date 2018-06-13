@@ -46,6 +46,9 @@ namespace RentApp.Models
         [Display(Name = "DateOfBirth")]
         public string DateOfBirth { get; set; }
 
+        [Display(Name = "Role")]
+        public string Role { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
