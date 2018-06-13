@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs';    //nije moglo da se ukljuci iz 'rxjs/Observable'
+import { Observable, BehaviorSubject } from 'rxjs';    //nije moglo da se ukljuci iz 'rxjs/Observable'
 import { AppUser } from '../models/AppUser.model'
 import { LoginModel } from '../models/login-model';
 //import 'rxjs/add/operator/catch';
@@ -16,7 +17,14 @@ import { LoginModel } from '../models/login-model';
 
 export class DemoServiceService {
 
-  constructor(private httpClient: HttpClient) { }
+  private messageSource = new BehaviorSubject<boolean>(false);
+  currentLoginState = this.messageSource.asObservable();
+
+  constructor(private httpClient: HttpClient, private router: Router) { }
+
+  changeLoginState(state: boolean){
+    this.messageSource.next(state);
+  }
 
    getMethodDemo(path): Observable<any> {
     return this.httpClient.get(path);
@@ -51,35 +59,18 @@ export class DemoServiceService {
 
           let role = decodedJwtData.role
 
-          console.log('jwtData: ' + jwtData)
-          console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
-          console.log('decodedJwtData: ' + decodedJwtData)
-          console.log('Role ' + role)
-         
           localStorage.setItem('jwt', jwt)
           localStorage.setItem('role', role);
+        //  alert("Uspjesno ste se ulogovali!");
 
-          alert("Uspjesno ste se ulogovali!");
-        
+          this.changeLoginState(true);
+          this.router.navigate(['services']);
         },
         err => {
-          console.log("Error occured");
+          alert("Pogresna sifra ili username!");
+
         }
       );
     }
-    else
-    {
-       let x = this.httpClient.get('http://localhost:51683/api/AppUsers') as Observable<any>
-
-      x.subscribe(
-        res => {
-          console.log(res);
-        },
-        err => {
-          console.log("Error occured");
-        }
-      );
-    }
-    
   }
 }

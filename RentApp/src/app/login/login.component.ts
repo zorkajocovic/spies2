@@ -3,7 +3,6 @@ import { DemoServiceService } from '../demoService/demo-service.service';
 import { LoginModel } from '../models/login-model';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private demoService: DemoServiceService, private router: Router) { }
+  constructor(private demoService: DemoServiceService) { }
 
   ngOnInit() {
 
@@ -21,7 +20,6 @@ export class LoginComponent implements OnInit {
 
 logIn(user: LoginModel, form: NgForm){
   this.demoService.getTheToken(user);
-  this.router.navigate(['services']);
 }
 
 
