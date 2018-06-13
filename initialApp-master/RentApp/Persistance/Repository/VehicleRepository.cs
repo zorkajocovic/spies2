@@ -15,5 +15,9 @@ namespace RentApp.Persistance.Repository
         public VehicleRepository(DbContext context) : base(context)
         {
         }
+        public IEnumerable<Vehicle> GetVehiclesForService(int serviceId)
+        {
+            return Context.Vehicles.Where(p => p.ServiceId == serviceId).ToList();
+        }
     }
 }

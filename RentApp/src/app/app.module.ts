@@ -51,7 +51,7 @@ const Routes= [
     component: ServicesComponent
   },
   {
-    path: "vehicles",
+    path: "services/:Id",
     component: VehiclesComponent,
     children: ChildRoutes
   }

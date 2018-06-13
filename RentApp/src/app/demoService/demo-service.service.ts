@@ -19,10 +19,17 @@ export class DemoServiceService {
   private messageSource = new BehaviorSubject<boolean>(false);
   currentLoginState = this.messageSource.asObservable();
 
+  private serviceId = new BehaviorSubject<number>(1);
+  currentServiceId = this.serviceId.asObservable();
+
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   changeLoginState(state: boolean){
     this.messageSource.next(state);
+  }
+  
+  choosenService(id: number){
+    this.messageSource
   }
 
    getMethodDemo(path): Observable<any> {
@@ -31,7 +38,11 @@ export class DemoServiceService {
   
 
   postMethodDemo(newMember): Observable<any> {
+<<<<<<< HEAD
     return this.httpClient.post("http://localhost:51685/api/Account/Register", newMember)
+=======
+    return this.httpClient.post("http://localhost:51111/api/Account/Register", newMember)
+>>>>>>> 6cf6b1a7289e3767212638ac7d05e216af88a723
   }
 
   getTheToken(user){
@@ -41,7 +52,11 @@ export class DemoServiceService {
     
     if(!localStorage.jwt)
     {
+<<<<<<< HEAD
        let x = this.httpClient.post('http://localhost:51685/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
+=======
+       let x = this.httpClient.post('http://localhost:51111/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
+>>>>>>> 6cf6b1a7289e3767212638ac7d05e216af88a723
 
       x.subscribe(
         res => {

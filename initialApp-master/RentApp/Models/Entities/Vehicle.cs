@@ -13,8 +13,8 @@ namespace RentApp.Models.Entities
         [ForeignKey("VehicleType")]
         public int VehicleTypeId { get; set; }
 
-        [ForeignKey("BranchOffice")]
-        public int BranchOfficeId { get; set; }
+        [ForeignKey("Service")]
+        public int ServiceId { get; set; }
 
         public string Model { get; set; }
         public string Producer { get; set; }
@@ -24,7 +24,7 @@ namespace RentApp.Models.Entities
         public bool Available { get; set; }
 
         public VehicleType VehicleType { get; set; }
-        public BranchOffice BranchOffice { get; set; }
+        public Service Service { get; set; }
      
     }
 }

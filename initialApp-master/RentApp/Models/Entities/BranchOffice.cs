@@ -18,6 +18,5 @@ namespace RentApp.Models.Entities
         public int ServiceID { get; set; }
 
         public Service ServiceId { get; set; }
-        public virtual ICollection<Vehicle> Vehicles { get; set; }
     }
 }
