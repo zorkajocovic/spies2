@@ -12,16 +12,14 @@
                     <p><b>Proizvodjac:</b> {{vehicle.Producer}}</p>
                     <p><b>Godina proizvodnje:</b> {{vehicle.ProductionYear}}</p>
                     <p><b>Opis:</b> {{vehicle.Description}}</p>                                   
-                </div>          
-                <li><a [routerLink]="['/vehicles/vehicles-reserve']">Reservisi</a></li>
-                <!--<input type="submit" class="btn btn-lg btn-primary btn-block" value="Reservisi"/> -->       
-                <vehicle-reserve></vehicle-reserve>           
+                </div>  
+                <button><a (click) = "showSpecificReservation = vehicle.VehicleID">Reservisi</a></button>       
+               <app-vehicles-reserve *ngIf="showSpecificReservation == vehicle.VehicleID"></app-vehicles-reserve>
             </div>
             
         </div>
       </div>
 </div>
-
 
 
 

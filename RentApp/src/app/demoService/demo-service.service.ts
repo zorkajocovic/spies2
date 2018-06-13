@@ -31,7 +31,7 @@ export class DemoServiceService {
   
 
   postMethodDemo(newMember): Observable<any> {
-    return this.httpClient.post("http://localhost:51683/api/Account/Register", newMember)
+    return this.httpClient.post("http://localhost:51685/api/Account/Register", newMember)
   }
 
   getTheToken(user){
@@ -41,7 +41,7 @@ export class DemoServiceService {
     
     if(!localStorage.jwt)
     {
-       let x = this.httpClient.post('http://localhost:51683/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
+       let x = this.httpClient.post('http://localhost:51685/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
 
       x.subscribe(
         res => {

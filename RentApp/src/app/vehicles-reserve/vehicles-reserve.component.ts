@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DemoServiceService } from '../demoService/demo-service.service';
+import { Branchoffice } from '../models/branchoffice';
 
 @Component({
   selector: 'app-vehicles-reserve',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiclesReserveComponent implements OnInit {
 
-  constructor() { }
+  Branchiffices: Branchoffice[];
 
-  ngOnInit() {
+  constructor(private service: DemoServiceService) { 
+    this.Branchiffices = [];
   }
 
+
+  ngOnInit() {
+    this.allBranchOffices('http://localhost:51685/api/BranchOffice');
+  }
+
+  allBranchOffices(path: string){
+    this.service.getMethodDemo(path).subscribe(
+      data => {
+        this.Branchiffices=data;      
+      },
+      error => {
+        alert("nije uspelo")
+      })
+    }
 }

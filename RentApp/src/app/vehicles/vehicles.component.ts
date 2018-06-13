@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Vehicle } from '../models/vehicle';
 import { DemoServiceService } from '../demoService/demo-service.service';
 import { VehiclesReserveComponent } from '../vehicles-reserve/vehicles-reserve.component'
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-vehicles',
@@ -11,9 +12,10 @@ import { VehiclesReserveComponent } from '../vehicles-reserve/vehicles-reserve.c
 export class VehiclesComponent implements OnInit {
 
   vehicles: Vehicle[];
+  showSpecificReservation = -1;
 
   constructor(private service: DemoServiceService) { 
-    this.allVehicles('http://localhost:51683/api/Vehicle');
+    this.allVehicles('http://localhost:51685/api/Vehicle');
   }
 
   ngOnInit() {
@@ -29,6 +31,11 @@ export class VehiclesComponent implements OnInit {
       error => {
         alert("nije uspelo")
       })
+    }
+
+    onSubmit(form: NgForm) { 
+      VehiclesReserveComponent.call;
+      form.reset();
     }
 
 }
