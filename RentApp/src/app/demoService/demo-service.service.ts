@@ -19,19 +19,12 @@ export class DemoServiceService {
   private messageSource = new BehaviorSubject<boolean>(false);
   currentLoginState = this.messageSource.asObservable();
 
-  private serviceId = new BehaviorSubject<number>(1);
-  currentServiceId = this.serviceId.asObservable();
-
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   changeLoginState(state: boolean){
     this.messageSource.next(state);
   }
   
-  choosenService(id: number){
-    this.messageSource
-  }
-
    getMethodDemo(path): Observable<any> {
     return this.httpClient.get(path);
   }

@@ -16,8 +16,7 @@ export class VehiclesComponent implements OnInit {
   vehicles: Vehicle[];
   serviceId: number = -1;
 
-  constructor(private service: DemoServiceService, private activatedRoute: ActivatedRoute) { 
-    debugger
+  constructor(private service: DemoServiceService, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => {this.serviceId = params["Id"]});    //Id je definisano u appmodule.ts kod path: "service/Id"
     this.allVehicles('http://localhost:51111/api/GetVehiclesForService/' + this.serviceId);
   }
