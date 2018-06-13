@@ -29,13 +29,8 @@ export class DemoServiceService {
     return this.httpClient.get(path);
   }
   
-
   postMethodDemo(newMember): Observable<any> {
-<<<<<<< HEAD
-    return this.httpClient.post("http://localhost:51685/api/Account/Register", newMember)
-=======
     return this.httpClient.post("http://localhost:51111/api/Account/Register", newMember)
->>>>>>> 6cf6b1a7289e3767212638ac7d05e216af88a723
   }
 
   getTheToken(user){
@@ -45,13 +40,8 @@ export class DemoServiceService {
     
     if(!localStorage.jwt)
     {
-<<<<<<< HEAD
-       let x = this.httpClient.post('http://localhost:51685/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
-=======
        let x = this.httpClient.post('http://localhost:51111/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
->>>>>>> 6cf6b1a7289e3767212638ac7d05e216af88a723
-
-      x.subscribe(
+    x.subscribe(
         res => {
           console.log(res.access_token);
           
@@ -62,11 +52,6 @@ export class DemoServiceService {
           let decodedJwtData = JSON.parse(decodedJwtJsonData)
 
           let role = decodedJwtData.role
-
-          console.log('jwtData: ' + jwtData)
-          console.log('decodedJwtJsonData: ' + decodedJwtJsonData)
-          console.log('decodedJwtData: ' + decodedJwtData)
-          console.log('Role ' + role)
 
           localStorage.setItem('jwt', jwt)
           localStorage.setItem('role', role);

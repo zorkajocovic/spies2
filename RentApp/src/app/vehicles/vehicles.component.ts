@@ -4,7 +4,6 @@ import {ActivatedRoute} from "@angular/router";
 import { Vehicle } from '../models/vehicle';
 import { DemoServiceService } from '../demoService/demo-service.service';
 import { VehiclesReserveComponent } from '../vehicles-reserve/vehicles-reserve.component'
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-vehicles',
@@ -15,18 +14,11 @@ import { NgForm } from '@angular/forms';
 export class VehiclesComponent implements OnInit {
 
   vehicles: Vehicle[];
-<<<<<<< HEAD
-  showSpecificReservation = -1;
-
-  constructor(private service: DemoServiceService) { 
-    this.allVehicles('http://localhost:51685/api/Vehicle');
-=======
   serviceId: number = -1;
 
   constructor(private service: DemoServiceService, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => {this.serviceId = params["Id"]});    //Id je definisano u appmodule.ts kod path: "service/Id"
     this.allVehicles('http://localhost:51111/api/GetVehiclesForService/' + this.serviceId);
->>>>>>> 6cf6b1a7289e3767212638ac7d05e216af88a723
   }
 
   ngOnInit() {
@@ -41,11 +33,6 @@ export class VehiclesComponent implements OnInit {
       error => {
         alert("nije uspelo")
       })
-    }
-
-    onSubmit(form: NgForm) { 
-      VehiclesReserveComponent.call;
-      form.reset();
     }
 
 }
