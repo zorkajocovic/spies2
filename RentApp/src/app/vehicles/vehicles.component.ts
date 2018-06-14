@@ -16,10 +16,6 @@ export class VehiclesComponent implements OnInit {
   vehicles: Vehicle[];
   showSpecificReservation = -1;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 042cca0bd7f377d368598c1a6f64194b7b4ceab4
   serviceId: number = -1;
 
   constructor(private service: DemoServiceService, private activatedRoute: ActivatedRoute) {
@@ -40,8 +36,4 @@ export class VehiclesComponent implements OnInit {
         alert("nije uspelo")
       })
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 042cca0bd7f377d368598c1a6f64194b7b4ceab4
 }

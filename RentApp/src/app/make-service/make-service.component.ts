@@ -17,26 +17,32 @@ export class MakeServiceComponent implements OnInit {
   ngOnInit() {
   }
 
-  url = "";
+  selectedFile: File;
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
+      // var reader = new FileReader();
 
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      // reader.readAsDataURL(event.target.files[0]); // read file as data url
 
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        this.url = event.target.result;
-      }
+      // reader.onload = (event) => { // called once readAsDataURL is completed
+      //   this.url = event.target.result;
+      // }
+
+      this.selectedFile = event.target.files[0]
     }
   }
 
   onSubmit(newService: Service, form: NgForm){
     debugger
-    newService.Logo = this.url;
+    let body = new FormData();
+    body.append('image', this.selectedFile)
+    body.append('service', JSON.stringify(newService))
+
+
     this.service.getMethodDemo("http://localhost:51111/api/GetActiveUserId").subscribe(
       data => {
           newService.Creator = data;
-          this.service.postMethodDemo("http://localhost:51111/api/Services", newService).subscribe(
+          this.service.postMethodDemo("http://localhost:51111/api/Services", body).subscribe(
             data => {
               alert("Uspesno ste se dodali novi servis")
               //this.router.navigate(['services']);
@@ -46,9 +52,7 @@ export class MakeServiceComponent implements OnInit {
             })
       });
 
-    this.url = "";
 
-  
 
     form.reset();
   }

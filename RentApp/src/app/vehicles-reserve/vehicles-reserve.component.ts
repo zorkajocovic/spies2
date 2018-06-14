@@ -49,4 +49,3 @@ export class VehiclesReserveComponent implements OnInit {
       form.reset();
   }
 }
-}

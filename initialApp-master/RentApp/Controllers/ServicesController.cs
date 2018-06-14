@@ -11,6 +11,9 @@ using System.Web.Http.Description;
 using RentApp.Models.Entities;
 using RentApp.Persistance;
 using RentApp.Persistance.UnitOfWork;
+using System.Web;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace RentApp.Controllers
 {
@@ -78,13 +81,45 @@ namespace RentApp.Controllers
 
         // POST: api/Services
         [ResponseType(typeof(Service))]
-        public IHttpActionResult PostService(Service service)
+        public IHttpActionResult PostService()
         {
+            HttpRequestMessage request = this.Request;
+            if (!request.Content.IsMimeMultipartContent())
+            {
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            }
+
+            string root = System.Web.HttpContext.Current.Server.MapPath("~/Content/images/services");
+
+            // Get the uploaded image from the Files collection
+            var httpPostedFile = HttpContext.Current.Request.Files["image"];
+            var service = JsonConvert.DeserializeObject<Service>(HttpContext.Current.Request.Form[0]);
+
+            Validate(service);
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            if (httpPostedFile != null)
+            {
+                // Validate the uploaded image(optional)
+                var extionsion = new FileInfo(httpPostedFile.FileName).Extension;
+                var fileName = Guid.NewGuid() + extionsion;
+                // Get the complete file path
+                var fileSavePath = Path.Combine(root, fileName);
+
+                while (File.Exists(fileSavePath))
+                {
+                    fileName = Guid.NewGuid() + extionsion;
+                    fileSavePath = Path.Combine(root, fileName);
+                }
+                // Save the uploaded file to "UploadedFiles" folder
+                httpPostedFile.SaveAs(fileSavePath);
+                service.Logo = "~/Content/images/services" + fileName;
+            }        
+          
             unitOfWork.Services.Add(service);
             unitOfWork.Complete();
 
