@@ -16,8 +16,10 @@ namespace RentApp.Models.Entities
         public DateTime? GetVehicleDate { get; set; }
         public DateTime? ReturnVehicleDate { get; set; }
         [ForeignKey("BranchOffice")]
-        public int ReturnBranchId { get; set; }
 
+        public int GetBranchId { get; set; }
+        public int ReturnBranchId { get; set; }
+       
         public AppUser Client { get; set; }
         public Vehicle Vehicle { get; set; }
         public BranchOffice BranchOffice { get; set; }

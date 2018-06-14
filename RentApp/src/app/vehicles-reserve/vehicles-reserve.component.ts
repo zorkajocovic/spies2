@@ -12,14 +12,18 @@ import { Reservation} from '../models/reservation'
 export class VehiclesReserveComponent implements OnInit {
 
   Branchiffices: Branchoffice[];
+  Branchoffice : number;
 
   constructor(private service: DemoServiceService) { 
     this.Branchiffices = [];
+    
   }
 
 
   ngOnInit() {
     this.allBranchOffices('http://localhost:51111/api/BranchOffice');
+    
+    
   }
 
   allBranchOffices(path: string){
@@ -32,13 +36,17 @@ export class VehiclesReserveComponent implements OnInit {
       })
     }
 
-
-    log = '';
-
-  logDropdown(id: number): void {
-    const NAME = this.Branchiffices.find((item: any) => item.id === +id).Address;
-    this.log += `Value ${NAME} was selected\n`;
-
-  
+  ReservationData(data: Reservation, form: NgForm){
+    debugger
+    //data.GetBranchId = this.Branchoffice;
+    this.service.postMethodDemo("http://localhost:51111/api/Reservation",data).subscribe(
+      data => {
+        this.Branchiffices=data;      
+      },
+      error => {
+        alert("nije uspelo")
+      })
+      form.reset();
+  }
 }
 }

@@ -1,3 +1,4 @@
+<form #f="ngForm" (ngSubmit)="ReservationData(f.value, f)">
 <div class="box-form box-form-car">
        <div class="box-form-item first">
          <label for="" class="label">Mesto preuzimanja</label>
@@ -6,22 +7,22 @@
              <i class="fa fa-map-marker" aria-hidden="true"></i>
              
              <div class="select-container">   
-                <select name="preuzimanje" class="box-routh select">           
-                <option *ngFor="let branchoffice of Branchiffices">{{branchoffice.Address}}</option>		
+                <select  name="preuzimanje" class="box-routh select">           
+                <option *ngFor="let branchoffice of Branchiffices" value="BranchOfficeID" ([ngModel])="Branchoffice">{{branchoffice.Address}}</option>		
                 </select>             		              
               </div>
             
              <i class="fa fa-caret-down" aria-hidden="true"></i>
            </div>
          </div>
-       </div>
+        </div>
        <div class="box-form-item">
          <label for="" class="label">Datum i vreme preuzimanja</label>
          <div class="box-form-subitem">
            <div class="datepicker-wrap">
              <i class="fa fa-calendar" aria-hidden="true"></i>           
              <div class="datepicker-container">
-               <input type="date" name="datump" id="datepicker" class="input-datepicker hasDatepicker" placeholder="IZABERITE">
+               <input ngModel type="date" name="datump" id="datepicker" class="input-datepicker hasDatepicker" placeholder="IZABERITE">
              </div>
              <i class="fa fa-caret-down" aria-hidden="true"></i>
            </div>
@@ -30,7 +31,7 @@
            <div class="datepicker-wrap">
              <i class="fa fa-clock-o" aria-hidden="true" style="padding-left:10px;"></i>
              <div class="datepicker-container">
-               <input type="time" name="vremep" id="vremep" class="input-timepicker"  value="15:00">
+               <input ngModel="Time" type="time" name="vremep" id="vremep" class="input-timepicker"  value="15:00">
              </div>
            </div>
          </div>
@@ -43,20 +44,20 @@
              <i class="fa fa-map-marker" aria-hidden="true"></i>
              <div class="select-container">
                 <select name="preuzimanje" class="box-routh select">           
-                    <option *ngFor="let branchoffice of Branchiffices">{{branchoffice.Address}}</option>		
+                    <option *ngFor="let branchoffice of Branchiffices" value="branchoffice1" ([ngModel])="BranchAddress.BranchOfficeID" >{{branchoffice.Address}}</option>		
                 </select> 
              </div>
              <i class="fa fa-caret-down" aria-hidden="true"></i>
            </div>
          </div>
-       </div>
+        </div>
        <div class="box-form-item last">
          <label for="" class="label">Datum i vreme vraćanja</label>
          <div class="box-form-subitem">
            <div class="datepicker-wrap">
              <i class="fa fa-calendar" aria-hidden="true"></i>          
              <div class="datepicker-container">
-               <input type="date" name="datumv" id="datepicker2" class="input-datepicker hasDatepicker" placeholder="IZABERITE">
+               <input ngModel type="date" name="datumv" id="datepicker2" class="input-datepicker hasDatepicker" placeholder="IZABERITE">
              </div>
              <i class="fa fa-caret-down" aria-hidden="true"></i>
            </div>
@@ -65,10 +66,12 @@
            <div class="datepicker-wrap">
              <i class="fa fa-clock-o" aria-hidden="true" style="padding-left:10px;"></i>
              <div class="datepicker-container">
-               <input type="time" name="vremev" id="vremev" class="input-timepicker">
+               <input ngModel type="time" name="vremev" id="vremev" class="input-timepicker">
              </div>
            </div>
          </div>
        </div>
        <button class="btn btn-prime btn-box-form">Rezervišite</button>
      </div>
+    
+     </form>
