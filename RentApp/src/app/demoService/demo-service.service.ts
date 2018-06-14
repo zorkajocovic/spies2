@@ -32,19 +32,6 @@ export class DemoServiceService {
   postMethodDemo(newMember, path): Observable<any> {
     return this.httpClient.post(path, newMember)
   }
-<<<<<<< HEAD
-=======
-=======
-
-  postMethodDemo(path, newMember): Observable<any> {
-    return this.httpClient.post(path, newMember)
-  }  
->>>>>>> d43f664a36377557917f47afc58907512c97df41
->>>>>>> 8071a7fc95bb1cb6dbdb304f5fd08c11c6f44eb6
-
-  getMethodCurrentUser(): Observable<any> {
-    return this.httpClient.get("http://localhost:51111/api/GetActiveUserId");
-  }
 
   getTheToken(user){
 

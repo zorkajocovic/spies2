@@ -19,11 +19,11 @@ namespace RentApp.Persistance.Repository
 
         }
 
-        public string GetActiveUser()
-        {
-            var user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            return user;
-        }
+        //public string GetActiveUser()
+        //{
+        //    var user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+        //    return user;
+        //}
 
         public int GetActiveUserId(string username)
         {
@@ -32,6 +32,9 @@ namespace RentApp.Persistance.Repository
             return user.AppUserId;
         }
 
-     
+        public string GetActiveUser()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

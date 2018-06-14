@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DemoServiceService } from '../demoService/demo-service.service';
 import { Branchoffice } from '../models/branchoffice';
 import { NgForm } from '@angular/forms';
 import { Reservation } from '../models/reservation'
+import { Vehicle } from '../models/vehicle';
 
 @Component({
   selector: 'app-vehicles-reserve',
@@ -15,6 +16,9 @@ export class VehiclesReserveComponent implements OnInit {
   Branchoffice: number;
   Branchoffice1: number;
   UserId: number;
+  GetDate: string;
+
+  @Input() vehicleId: number;
 
   constructor(private service: DemoServiceService) {
     this.BranchOffices = [];
@@ -32,8 +36,6 @@ export class VehiclesReserveComponent implements OnInit {
         this.BranchOffices = data;
         this.Branchoffice = data[0].BranchOfficeID;
         this.Branchoffice1 = data[0].BranchOfficeID;
-
-
       },
       error => {
         alert("nije uspelo")
@@ -43,17 +45,17 @@ export class VehiclesReserveComponent implements OnInit {
 
 
   ReservationData(dataForm: Reservation, form: NgForm) {
-    debugger
- 
 
     this.service.getMethodDemo("http://localhost:51111/api/GetActiveUserId").subscribe(
       data => {
+        
         this.UserId = data;
-
-        dataForm.GetBranchId = this.Branchoffice;
+        debugger
         dataForm.ClientID = this.UserId;
-        dataForm.ReturnBranchID = this.Branchoffice1;
-
+        dataForm.VehicleID = this.vehicleId; 
+        dataForm.GetBranchId = this.Branchoffice;       
+        dataForm.ReturnBranchId = this.Branchoffice1;
+        
         this.service.postMethodDemo("http://localhost:51111/api/Reservation", dataForm).subscribe(
           data => {
             this.BranchOffices = data;
@@ -61,17 +63,6 @@ export class VehiclesReserveComponent implements OnInit {
           error => {
             alert("nije uspelo")
           })
-        form.reset();
-      },
-      error => {
-        alert("nije uspelo")
-      })
-
-
-
-  
-  }
-
-
-}
-}
+        })
+      }
+    }

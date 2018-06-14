@@ -314,6 +314,7 @@
     <Compile Include="Models\Entities\AppUser.cs" />
     <Compile Include="Models\Entities\Rate.cs" />
     <Compile Include="Models\Entities\Reservation.cs" />
+    <Compile Include="Models\Entities\ReservationBinding.cs" />
     <Compile Include="Models\Entities\Services.cs" />
     <Compile Include="Models\Entities\Vehicle.cs" />
     <Compile Include="Models\Entities\VehicleType.cs" />
@@ -428,6 +429,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
