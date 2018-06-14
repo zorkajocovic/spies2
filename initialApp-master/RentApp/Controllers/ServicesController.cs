@@ -117,7 +117,7 @@ namespace RentApp.Controllers
                 }
                 // Save the uploaded file to "UploadedFiles" folder
                 httpPostedFile.SaveAs(fileSavePath);
-                service.Logo = "~/Content/images/services" + fileName;
+                service.Logo = "http://localhost:51111/Content/images/services/" + fileName;
             }        
           
             unitOfWork.Services.Add(service);

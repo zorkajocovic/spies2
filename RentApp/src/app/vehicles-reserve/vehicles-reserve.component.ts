@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DemoServiceService } from '../demoService/demo-service.service';
-import { Branchoffice } from '../models/branchoffice';
+import { BranchOffice } from '../models/branchoffice';
 import { NgForm } from '@angular/forms';
 import { Reservation } from '../models/reservation'
 import { Vehicle } from '../models/vehicle';
@@ -12,11 +12,16 @@ import { Vehicle } from '../models/vehicle';
 })
 export class VehiclesReserveComponent implements OnInit {
 
+<<<<<<< HEAD
   BranchOffices: Branchoffice[];
   Branchoffice: number;
   Branchoffice1: number;
   UserId: number;
   GetDate: string;
+=======
+  Branchiffices: BranchOffice[];
+  Branchoffice : number;
+>>>>>>> abecf2a48e2609feddc87be459bea59700206ddc
 
   @Input() vehicleId: number;
 

@@ -1,0 +1,44 @@
+<div class="container container mt-4 mb-5">
+  <h3 class="display-4 text-center"> Branches </h3>     
+  <hr class="bg-dark mb-4 w-25">
+ 
+  <div class="row" >
+      <div class="col-md-4" *ngFor="let branch of branches">
+          <div class="card" >
+              <img class="card-img-top" src="{{branch.image}}" alt="Card image cap">
+              <div class="card-block p-3">
+                  <h4 class="card-title" name="Address">{{branch.Address}}</h4>
+                  <p class="card-text" name="Latitude">{{branch.Latitude}}</p>
+                  <p class="card-text" name="Longitude">{{branch.Longitude}}</p>
+              </div>
+          </div>
+      </div>
+    </div>
+
+  <a [routerLink]="['/make-branch']">Dodaj filijalu</a>
+</div>
+
+
+<!--<div class="container">
+  <form #makeBranch="ngForm" (ngSubmit)="onSubmit(makeBranch.value, makeBranch)">
+
+    <label for="fname">Address</label>
+    <input type="text" name="Address" placeholder="Address.." ngModel>
+
+    <label for="lname">Image</label>
+    <br>
+    <input type='file' (change)="onSelectFile($event)" name="image" placeholder="Image.." ngModel>
+    <img [src]="url" height="200">
+    <br>
+    <br>
+    <label for="lname">Latitude</label>
+    <input type="text" name="Latitude" placeholder="Latitude.." ngModel>
+
+    <label for="subject">Longitude</label>
+    <input type="text" name="Longitude" placeholder="Longitude.." ngModel>
+
+    <input type="submit" value="Save">
+
+  </form>
+</div>
+-->

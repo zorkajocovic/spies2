@@ -26,6 +26,12 @@ namespace RentApp.Controllers
             return unitOfWork.BranchOffices.GetAll();
         }
 
+        [Route("api/GetBranchOfficesForService/{serviceId}")]
+        public IEnumerable<BranchOffice> GetBranchOfficesForService(int serviceId)
+        {
+            return unitOfWork.BranchOffices.GetBranchOfficesForService(serviceId);
+        }
+
         // GET: api/Services/5
         [ResponseType(typeof(AppUser))]
         public IHttpActionResult GetBranchOffice(int id)
