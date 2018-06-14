@@ -20,7 +20,10 @@ export class ServicesComponent implements OnInit {
    }
 
   ngOnInit() {
+<<<<<<< HEAD
+=======
 
+>>>>>>> b1600ef3987fbc3ac6f79b29296108af09ff586b
     this.allServices('http://localhost:51111/api/Services');
   }
 

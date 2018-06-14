@@ -41,7 +41,12 @@ export class DemoServiceService {
     if(!localStorage.jwt)
     {
        let x = this.httpClient.post('http://localhost:51111/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
+<<<<<<< HEAD
+
+      x.subscribe(
+=======
     x.subscribe(
+>>>>>>> b1600ef3987fbc3ac6f79b29296108af09ff586b
         res => {
           console.log(res.access_token);
           
