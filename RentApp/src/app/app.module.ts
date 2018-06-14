@@ -21,6 +21,7 @@ import { IsSomeLogged } from './guard/auth.logged';
 import { IsAdmin } from './guard/auth.admin';
 import { IsManager } from './guard/auth.manager';
 import { IsClient } from './guard/auth.client';
+import { MakeServiceComponent } from './make-service/make-service.component';
 
 
 const ChildRoutes =
@@ -73,7 +74,8 @@ const Routes= [
     ServicesComponent,
     VehiclesComponent,
     ProfileComponent,
-    VehiclesReserveComponent
+    VehiclesReserveComponent,
+    MakeServiceComponent
     ],
   imports: [
     BrowserModule,

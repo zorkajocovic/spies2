@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppUser } from '../models/AppUser.model';
 import { NgForm } from '@angular/forms';
 import { DemoServiceService } from '../demoService/demo-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
   roles: any = ["Client", "Manager"];
   selectedRole: string;
 
-  constructor(private service: DemoServiceService) {
+  constructor(private service: DemoServiceService, private router: Router) {
   
    }
 
@@ -23,10 +24,22 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(user: AppUser, form: NgForm) {
     debugger
+<<<<<<< HEAD
     user.role = this.selectedRole;
     this.service.postMethodDemo("http://localhost:51111/api/Account/Register", user).subscribe(
+=======
+    if(this.selectedRole == "Manager"){
+      user.role = "Manager";
+    }
+    else{
+      user.role = "AppUser";
+    }
+
+    this.service.postMethodDemo(user).subscribe(
+>>>>>>> d43f664a36377557917f47afc58907512c97df41
       data => {
         alert("Uspesno ste se registrovali")
+        this.router.navigate(['services']);
       },
       error => {
         alert("nije uspelo")
@@ -35,7 +48,4 @@ export class RegisterComponent implements OnInit {
     form.reset();
   }
 
-  radioChangeHandler($event){
-    this.selectedRole = $event;
-  }
 }

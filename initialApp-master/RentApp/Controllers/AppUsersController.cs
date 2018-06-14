@@ -39,6 +39,13 @@ namespace RentApp.Controllers
             return Ok(appUser);
         }
 
+        // GET: api/GetActiveUserId
+        [Route("api/GetActiveUserId")]
+        public int GetActiveUserId()
+        {
+            return unitOfWork.AppUsers.GetActiveUserId();
+        }
+
         // PUT: api/Services/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutAppUser(int id, AppUser appUser)
