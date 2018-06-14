@@ -5,5 +5,5 @@ export class Reservation {
     GetVehicleDate: string;
     ReturnVehicleDate: string;
     GetBranchId: number;
-    ReturnBrachID: number;   
+    ReturnBranchID: number;   
 }

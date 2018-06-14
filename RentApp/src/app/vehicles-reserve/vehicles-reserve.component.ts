@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DemoServiceService } from '../demoService/demo-service.service';
 import { Branchoffice } from '../models/branchoffice';
 import { NgForm } from '@angular/forms';
-import { Reservation} from '../models/reservation'
+import { Reservation } from '../models/reservation'
 
 @Component({
   selector: 'app-vehicles-reserve',
@@ -11,41 +11,66 @@ import { Reservation} from '../models/reservation'
 })
 export class VehiclesReserveComponent implements OnInit {
 
-  Branchiffices: Branchoffice[];
-  Branchoffice : number;
+  BranchOffices: Branchoffice[];
+  Branchoffice: number;
+  Branchoffice1: number;
+  UserId: number;
 
-  constructor(private service: DemoServiceService) { 
-    this.Branchiffices = [];
-    
+  constructor(private service: DemoServiceService) {
+    this.BranchOffices = [];
   }
 
 
   ngOnInit() {
     this.allBranchOffices('http://localhost:51111/api/BranchOffice');
-    
-    
+
   }
 
-  allBranchOffices(path: string){
+  allBranchOffices(path: string) {
     this.service.getMethodDemo(path).subscribe(
       data => {
-        this.Branchiffices=data;      
-      },
-      error => {
-        alert("nije uspelo")
-      })
-    }
+        this.BranchOffices = data;
+        this.Branchoffice = data[0].BranchOfficeID;
+        this.Branchoffice1 = data[0].BranchOfficeID;
 
-  ReservationData(data: Reservation, form: NgForm){
-    debugger
-    //data.GetBranchId = this.Branchoffice;
-    this.service.postMethodDemo("http://localhost:51111/api/Reservation",data).subscribe(
-      data => {
-        this.Branchiffices=data;      
+
       },
       error => {
         alert("nije uspelo")
       })
-      form.reset();
   }
+
+
+
+  ReservationData(dataForm: Reservation, form: NgForm) {
+    debugger
+ 
+
+    this.service.getMethodDemo("http://localhost:51111/api/GetActiveUserId").subscribe(
+      data => {
+        this.UserId = data;
+
+        dataForm.GetBranchId = this.Branchoffice;
+        dataForm.ClientID = this.UserId;
+        dataForm.ReturnBranchID = this.Branchoffice1;
+
+        this.service.postMethodDemo("http://localhost:51111/api/Reservation", dataForm).subscribe(
+          data => {
+            this.BranchOffices = data;
+          },
+          error => {
+            alert("nije uspelo")
+          })
+        form.reset();
+      },
+      error => {
+        alert("nije uspelo")
+      })
+
+
+
+  
+  }
+
+
 }
