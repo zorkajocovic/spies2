@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(user: AppUser, form: NgForm) {
     debugger
     user.role = this.selectedRole;
-    this.service.postMethodDemo(user).subscribe(
+    this.service.postMethodDemo("http://localhost:51111/api/Account/Register", user).subscribe(
       data => {
         alert("Uspesno ste se registrovali")
       },

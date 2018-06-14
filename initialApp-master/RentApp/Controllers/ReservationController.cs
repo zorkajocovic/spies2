@@ -75,6 +75,7 @@ namespace RentApp.Controllers
         }
 
         // POST: api/Services
+        [Route("api/Reservation")]
         [ResponseType(typeof(Reservation))]
         public IHttpActionResult PostService(Reservation reservation)
         {
