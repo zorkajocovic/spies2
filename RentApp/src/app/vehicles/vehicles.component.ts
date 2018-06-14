@@ -27,8 +27,8 @@ export class VehiclesComponent implements OnInit {
   allVehicles(path: string){
     this.service.getMethodDemo(path).subscribe(
       data => {
-        this.vehicles=data;
-        alert("uspelo")
+        this.vehicles = data;
+       // alert("uspelo")
       },
       error => {
         alert("nije uspelo")

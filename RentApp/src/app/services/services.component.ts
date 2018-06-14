@@ -27,7 +27,7 @@ export class ServicesComponent implements OnInit {
   allServices(path: string){
     this.service.getMethodDemo(path).subscribe(
       data => {
-        this.services=data;
+        this.services = data;
       },
       error => {
         alert("nije uspelo")

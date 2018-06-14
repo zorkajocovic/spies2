@@ -23,8 +23,7 @@ export class NavbarComponent implements OnInit {
 
   
 logOut(){
-  debugger
-  localStorage.removeItem('jwt')
+  localStorage.removeItem('jwt');
   localStorage.removeItem('role');
   this.loggedIn = this.logged.canActivate();
 

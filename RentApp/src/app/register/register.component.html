@@ -29,13 +29,15 @@
               </div>
             </div>
           </div>
-         <!-- <div class="form-group">
-            <div *ngFor="let role of roles">
-              <input name="Role" type="radio" for="Role" value="{{role}}" (ngChange)="radioChangeHandler($event)" ngModel/>
+
+        <div class="form-group">
+            <label>Role</label>
+            <div *ngFor="let role of roles; let idx = index">
+              <input name="role" type="radio" [value]="role" for="role" [(ngModel)]="selectedRole"/>
               <label>{{role}}</label>
             </div>
           </div>
-        -->
+        
           <div class="form-group">
             <label>Create password</label>
             <input class="form-control" type="password" name="password" ngModel>
