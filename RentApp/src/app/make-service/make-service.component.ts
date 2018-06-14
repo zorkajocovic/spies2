@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { DemoServiceService } from '../demoService/demo-service.service';
 import { Service } from '../models/service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-make-service',
@@ -12,7 +13,7 @@ import { Service } from '../models/service';
 
 export class MakeServiceComponent implements OnInit {
 
-  constructor(private service: DemoServiceService) { }
+  constructor(private service: DemoServiceService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -43,7 +44,6 @@ export class MakeServiceComponent implements OnInit {
           this.service.postMethodDemo("http://localhost:51111/api/Services", body).subscribe(
             data => {
               alert("Uspesno ste se dodali novi servis")
-              //this.router.navigate(['services']);
             },
             error => {
               alert("nije uspelo")
@@ -58,6 +58,7 @@ export class MakeServiceComponent implements OnInit {
 
     this.url = "";  
     form.reset();
+    this.router.navigate(['services']);
   }
 
 }

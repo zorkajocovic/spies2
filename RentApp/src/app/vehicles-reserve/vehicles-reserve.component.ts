@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DemoServiceService } from '../demoService/demo-service.service';
-import { Branchoffice } from '../models/branchoffice';
+import { BranchOffice } from '../models/branchoffice';
 import { NgForm } from '@angular/forms';
 import { Reservation} from '../models/reservation'
 
@@ -11,7 +11,7 @@ import { Reservation} from '../models/reservation'
 })
 export class VehiclesReserveComponent implements OnInit {
 
-  Branchiffices: Branchoffice[];
+  Branchiffices: BranchOffice[];
   Branchoffice : number;
 
   constructor(private service: DemoServiceService) { 

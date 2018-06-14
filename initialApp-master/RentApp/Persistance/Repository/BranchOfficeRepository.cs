@@ -16,5 +16,9 @@ namespace RentApp.Persistance.Repository
 
         }
 
+        public IEnumerable<BranchOffice> GetBranchOfficesForService(int serviceId)
+        {
+            return Context.Branches.Where(p => p.ServiceID == serviceId).ToList();
+        }
     }
 }
