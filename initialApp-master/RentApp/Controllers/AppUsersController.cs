@@ -43,7 +43,7 @@ namespace RentApp.Controllers
         [Route("api/GetActiveUserId")]
         public int GetActiveUserId()
         {
-            return unitOfWork.AppUsers.GetActiveUserId();
+            return unitOfWork.AppUsers.GetActiveUserId(User.Identity.Name);
         }
 
         // PUT: api/Services/5

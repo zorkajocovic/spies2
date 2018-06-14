@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, makeStateKey } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -61,6 +61,11 @@ const Routes= [
     path: "profile",
     component: ProfileComponent
   },
+  {
+    path: "make-service",
+    component: MakeServiceComponent
+  }
+
 
 ]
 

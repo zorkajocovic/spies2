@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       user.role = "AppUser";
     }
 
-    this.service.postMethodDemo(user).subscribe(
+    this.service.postMethodDemo("http://localhost:51111/api/Account/Register", user).subscribe(
       data => {
         alert("Uspesno ste se registrovali")
         this.router.navigate(['services']);
