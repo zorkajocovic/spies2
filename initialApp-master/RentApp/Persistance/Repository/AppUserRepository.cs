@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Web;
 using RentApp.Models.Entities;
 using Microsoft.AspNet.Identity;
-using System.Security.Principal;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace RentApp.Persistance.Repository
 {
@@ -25,9 +25,8 @@ namespace RentApp.Persistance.Repository
             return user;
         }
 
-        public int GetActiveUserId()
+        public int GetActiveUserId(string username)
         {
-            var username = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             var user = Context.Users.Where(u => u.Email == username).FirstOrDefault();
 
             return user.AppUserId;

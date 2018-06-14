@@ -32,5 +32,4 @@ export class ServicesComponent implements OnInit {
         alert("nije uspelo")
       })
     }
-    
   }

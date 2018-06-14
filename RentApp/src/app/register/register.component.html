@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <label>Role</label>
-            <div *ngFor="let role of roles; let idx = index">
+            <div *ngFor="let role of roles">
               <input name="role" type="radio" [value]="role" for="role" [(ngModel)]="selectedRole"/>
               <label>{{role}}</label>
             </div>

@@ -3,5 +3,5 @@ export class Service {
     Logo: string;
     Email: string;
     Description: string;
-    Creator: string;
+    Creator: number;
 }
