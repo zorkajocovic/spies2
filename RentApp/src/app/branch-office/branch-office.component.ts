@@ -17,7 +17,7 @@ export class BranchOfficeComponent implements OnInit {
   constructor(private service: DemoServiceService, private activatedRoute: ActivatedRoute) { 
     debugger
     this.activatedRoute.params.subscribe(params => {this.serviceId = params["Id"]});    //Id je definisano u appmodule.ts kod path: "service/Id"
-    this.allBranches('http://localhost:51111/api/GetBranchOfficesForService/' + this.serviceId );
+    this.allBranches('http://localhost:51111/api/GetBranchOfficesForService/' + this.serviceId);
   }
 
   url: string = '';
@@ -27,42 +27,11 @@ export class BranchOfficeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelectFile(event) {
-    if (event.target.files && event.target.files[0]) {
-       var reader = new FileReader();
-
-       reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-       reader.onload = (event) => { // called once readAsDataURL is completed
-         this.url = event.target.result;
-       }
-
-      this.selectedFile = event.target.files[0]
-    }
-  }
-
-  onSubmit(newBranch: BranchOffice, form: NgForm){
-
-    this.service.getMethodDemo("http://localhost:51111/api/BranchOffice").subscribe(
-      data => {
-         this.branches = data;
-      });
-
-      debugger
-      let body = new FormData();
-      body.append('image', this.selectedFile)
-      body.append('branch', JSON.stringify(newBranch))
-
-    this.url = "";  
-    form.reset();
-  }
-
-  
   allBranches(path: string){
     this.service.getMethodDemo(path).subscribe(
       data => {
         this.branches = data;
-       // alert("uspelo")
+        alert("uspelo")
       },
       error => {
         alert("nije uspelo")

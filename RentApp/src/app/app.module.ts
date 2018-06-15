@@ -24,6 +24,7 @@ import { IsClient } from './guard/auth.client';
 import { MakeServiceComponent } from './make-service/make-service.component';
 import { BranchOfficeComponent } from './branch-office/branch-office.component';
 import { MakeBranchComponent } from './make-branch/make-branch.component';
+import { MakeVehicleComponent } from './make-vehicle/make-vehicle.component';
 
 
 const ChildRoutes =
@@ -54,12 +55,7 @@ const Routes= [
     path: "services",
     component: ServicesComponent
   },
-  {
-    path: "branches",
-    component: BranchOfficeComponent
-  },
-  
-  
+
   {
     path: "services/:Id",
     component: VehiclesComponent,
@@ -82,7 +78,7 @@ const Routes= [
   },
 
   {
-    path: "make-branch",
+    path: "make-branch/:Id",
     component: MakeBranchComponent
   }
 
@@ -101,7 +97,8 @@ const Routes= [
     VehiclesReserveComponent,
     MakeServiceComponent,
     BranchOfficeComponent,
-    MakeBranchComponent
+    MakeBranchComponent,
+    MakeVehicleComponent
     ],
   imports: [
     BrowserModule,
