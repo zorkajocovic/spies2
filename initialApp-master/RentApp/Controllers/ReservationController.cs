@@ -83,11 +83,11 @@ namespace RentApp.Controllers
             reservation.VehicleID = reservationBinding.VehicleID;
             reservation.GetBranchId = reservationBinding.GetBranchId;
             reservation.ReturnBranchId = reservationBinding.ReturnBranchId;
-            string getDateTime = string.Concat(reservationBinding.GetDate, reservationBinding.GetTime);
+            string getDateTime = string.Concat(reservationBinding.GetDate + " ", reservationBinding.GetTime);
             DateTime dt = DateTime.Parse(getDateTime);
             reservation.GetVehicleDate = dt;
 
-            string returnDateTime = string.Concat(reservationBinding.ReturnDate, reservationBinding.ReturnTime);
+            string returnDateTime = string.Concat(reservationBinding.ReturnDate + " ", reservationBinding.ReturnTime);
             DateTime dt1 = DateTime.Parse(returnDateTime);
             reservation.ReturnVehicleDate = dt1;
 

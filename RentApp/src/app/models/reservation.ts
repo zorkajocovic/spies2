@@ -1,11 +1,10 @@
 export class Reservation {
-    ReservationID: number;
     ClientID: number;
     GetBranchId: number;
-    ReturnBranchId: number;
-    VehicleID: number;     
-    getDate: string;
-    ReturnDate: string;
+    GetDate: string;
     GetTime: string;    
+    ReturnBranchId: number;
+    ReturnDate: string;  
     ReturnTime: string;
+    VehicleID: number;       
 }

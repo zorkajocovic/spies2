@@ -12,16 +12,13 @@ import { Vehicle } from '../models/vehicle';
 })
 export class VehiclesReserveComponent implements OnInit {
 
-<<<<<<< HEAD
-  BranchOffices: Branchoffice[];
+  BranchOffices: BranchOffice[];
   Branchoffice: number;
   Branchoffice1: number;
   UserId: number;
   GetDate: string;
-=======
-  Branchiffices: BranchOffice[];
-  Branchoffice : number;
->>>>>>> abecf2a48e2609feddc87be459bea59700206ddc
+
+
 
   @Input() vehicleId: number;
 
@@ -63,6 +60,7 @@ export class VehiclesReserveComponent implements OnInit {
         
         this.service.postMethodDemo("http://localhost:51111/api/Reservation", dataForm).subscribe(
           data => {
+            debugger
             this.BranchOffices = data;
           },
           error => {

@@ -75,7 +75,7 @@ namespace RentApp.Controllers
         }
 
         // POST: api/Services
-        [ResponseType(typeof(Reservation))]
+        [ResponseType(typeof(Rate))]
         public IHttpActionResult PostService(Rate rate)
         {
             if (!ModelState.IsValid)

@@ -25,11 +25,12 @@ export class DemoServiceService {
     this.messageSource.next(state);
   }
   
-   getMethodDemo(path): Observable<any> {
+  getMethodDemo(path): Observable<any> {
     return this.httpClient.get(path);
   }
   
-  postMethodDemo(newMember, path): Observable<any> {
+  postMethodDemo(path, newMember): Observable<any> {
+    debugger
     return this.httpClient.post(path, newMember)
   }
 
