@@ -4,7 +4,7 @@
     <hr class="bg-dark mb-4 w-25">
    
     <div class="row" >
-        <div class="col-md-7" *ngFor="let vehicle of vehicles; let i=index">
+        <div class="col-sm-5" *ngFor="let vehicle of vehicles; let i=index">
             <div class="card" >
                 <img class="card-img-top" src="{{vehicle.Image}}" alt="Card image cap">
                 <div class="card-block p-2">
@@ -14,7 +14,7 @@
                     <p><b>Opis:</b> {{vehicle.Description}}</p>                                   
                 </div>  
                 <button><a (click) = "showSpecificReservation = vehicle.VehicleID">Reservisi</a></button>       
-               <app-vehicles-reserve *ngIf="showSpecificReservation == vehicle.VehicleID"></app-vehicles-reserve>
+               <app-vehicles-reserve [(vehicleId)]="vehicle.VehicleID" *ngIf="showSpecificReservation == vehicle.VehicleID"></app-vehicles-reserve>
                 </div>          
             </div>
             

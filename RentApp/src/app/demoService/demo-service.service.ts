@@ -29,11 +29,9 @@ export class DemoServiceService {
     return this.httpClient.get(path);
   }
   
-  postMethodDemo(path, newMember): Observable<any> {
+  postMethodDemo(newMember, path): Observable<any> {
     return this.httpClient.post(path, newMember)
   }
-
-
 
   getTheToken(user){
 

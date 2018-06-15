@@ -25,14 +25,13 @@ export class RegisterComponent implements OnInit {
   onSubmit(user: AppUser, form: NgForm) {
     debugger
     user.role = this.selectedRole;
-
     if(this.selectedRole == "Manager"){
       user.role = "Manager";
     }
     else{
       user.role = "AppUser";
     }
-
+    
     this.service.postMethodDemo("http://localhost:51111/api/Account/Register", user).subscribe(
       data => {
         alert("Uspesno ste se registrovali")

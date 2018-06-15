@@ -75,10 +75,23 @@ namespace RentApp.Controllers
         }
 
         // POST: api/Services
-        [Route("api/Reservation")]
         [ResponseType(typeof(Reservation))]
-        public IHttpActionResult PostService(Reservation reservation)
+        public IHttpActionResult PostReservation(ReservationBinding reservationBinding)
         {
+            Reservation reservation = new Reservation();
+            reservation.ClientID = reservationBinding.ClientID;
+            reservation.VehicleID = reservationBinding.VehicleID;
+            reservation.GetBranchId = reservationBinding.GetBranchId;
+            reservation.ReturnBranchId = reservationBinding.ReturnBranchId;
+            string getDateTime = string.Concat(reservationBinding.GetDate, reservationBinding.GetTime);
+            DateTime dt = DateTime.Parse(getDateTime);
+            reservation.GetVehicleDate = dt;
+
+            string returnDateTime = string.Concat(reservationBinding.ReturnDate, reservationBinding.ReturnTime);
+            DateTime dt1 = DateTime.Parse(returnDateTime);
+            reservation.ReturnVehicleDate = dt1;
+
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -91,7 +104,7 @@ namespace RentApp.Controllers
 
         // DELETE: api/Services/5
         [ResponseType(typeof(Reservation))]
-        public IHttpActionResult DeleteService(int id)
+        public IHttpActionResult DeleteReservation(int id)
         {
             Reservation reservation = db.Reservations.Get(id);
             if (reservation == null)
