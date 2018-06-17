@@ -17,6 +17,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     if (jwt) 
     {
+
         console.log(request)
         request = request.clone(
             {

@@ -1,4 +1,5 @@
 export class Reservation {
+   
     ClientID: number;
     GetBranchId: number;
     GetDate: string;

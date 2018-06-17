@@ -32,8 +32,9 @@ const ChildRoutes =
     {
       path: "vehicles-reserve",
       component: VehiclesReserveComponent
-    },
+    }    
   ]
+
 
 const Routes= [
   {
@@ -53,7 +54,8 @@ const Routes= [
 
   {
     path: "services",
-    component: ServicesComponent
+    component: ServicesComponent,
+
   },
 
   {
@@ -98,7 +100,7 @@ const Routes= [
     MakeServiceComponent,
     BranchOfficeComponent,
     MakeBranchComponent,
-    MakeVehicleComponent
+    MakeVehicleComponent,
     ],
   imports: [
     BrowserModule,

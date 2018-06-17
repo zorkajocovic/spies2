@@ -2,12 +2,11 @@
 <div class="box-form box-form-car">
        <div class="box-form-item first">
          <label for="" class="label">Mesto preuzimanja</label>
-         <div class="">
            <div class="select-wrap">
              <i class="fa fa-map-marker" aria-hidden="true"></i>
              
              <div class="select-container">   
-                <select  name="Branchoffice" class="box-routh select">           
+                <select  name="Branchoffice" class="box-routh select" [(ngModel)]="Branchoffice">           
                 <option *ngFor="let branchoffice of BranchOffices" [value]="branchoffice.BranchOfficeID" >{{branchoffice.Address}}</option>		
                 </select>             		              
               </div>
@@ -43,7 +42,7 @@
            <div class="select-wrap">
              <i class="fa fa-map-marker" aria-hidden="true"></i>
              <div class="select-container">
-                <select name="Branchoffice1" class="box-routh select">          
+                <select name="Branchoffice1" class="box-routh select" [(ngModel)]="Branchoffice1">          
                     <option *ngFor="let branchoffice of BranchOffices"  [value]="branchoffice.BranchOfficeID">{{branchoffice.Address}}</option>	
                 </select> 
              </div>
@@ -70,8 +69,7 @@
              </div>
            </div>
          </div>
-       </div>
-       <button class="btn btn-prime btn-box-form">Rezervišite</button>
+       <button class="btn btn-primary">Rezervišite</button>
      </div>
     
      </form>
