@@ -13,7 +13,12 @@ import { Service } from '../models/service';
 export class ServicesComponent implements OnInit {
 
   services: Service[];
+<<<<<<< HEAD
   serviceId: number = -1;
+=======
+  ServiceID: number = -1;
+  showSpecificComment = -1;
+>>>>>>> 36b94d7c0d276a71259d6d029e47cbd1ccf4685c
 
   constructor(private service: DemoServiceService) {  
     this.services = [];  

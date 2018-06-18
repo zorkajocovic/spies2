@@ -6,14 +6,14 @@ namespace RentApp.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Initial : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+    public sealed partial class RentApp : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RentApp));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806031439020_Initial"; }
+            get { return "201806161455101_RentApp"; }
         }
         
         string IMigrationMetadata.Source
