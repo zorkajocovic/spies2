@@ -1,11 +1,14 @@
-﻿using RentApp.Models.Entities;
+﻿using Newtonsoft.Json;
+using RentApp.Models.Entities;
 using RentApp.Persistance.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 
@@ -86,12 +89,45 @@ namespace RentApp.Controllers
 
         // POST: api/Services
         [ResponseType(typeof(Vehicle))]
-        public IHttpActionResult PostService(Vehicle vehicle)
-        {
+        public IHttpActionResult PostVehicle()
+            {
+            HttpRequestMessage request = this.Request;
+            if (!request.Content.IsMimeMultipartContent())
+            {
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            }
+
+            string root = System.Web.HttpContext.Current.Server.MapPath("~/Content/images/vehicles");
+
+            // Get the uploaded image from the Files collection
+            var httpPostedFile = HttpContext.Current.Request.Files["image"];
+            var vehicle = JsonConvert.DeserializeObject<Vehicle>(HttpContext.Current.Request.Form[0]);
+
+            Validate(vehicle);
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            if (httpPostedFile != null)
+            {
+                // Validate the uploaded image(optional)
+                var extionsion = new FileInfo(httpPostedFile.FileName).Extension;
+                var fileName = Guid.NewGuid() + extionsion;
+                // Get the complete file path
+                var fileSavePath = Path.Combine(root, fileName);
+
+                while (File.Exists(fileSavePath))
+                {
+                    fileName = Guid.NewGuid() + extionsion;
+                    fileSavePath = Path.Combine(root, fileName);
+                }
+                // Save the uploaded file to "UploadedFiles" folder
+                httpPostedFile.SaveAs(fileSavePath);
+                vehicle.Image = "http://localhost:51111/Content/images/vehicles/" + fileName;
+            }
+
             db.Vehicles.Add(vehicle);
             db.Complete();
 

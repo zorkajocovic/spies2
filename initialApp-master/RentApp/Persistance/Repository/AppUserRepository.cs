@@ -19,22 +19,17 @@ namespace RentApp.Persistance.Repository
 
         }
 
-        //public string GetActiveUser()
-        //{
-        //    var user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-        //    return user;
-        //}
-
         public int GetActiveUserId(string username)
         {
             var user = Context.Users.Where(u => u.Email == username).FirstOrDefault();
-
             return user.AppUserId;
         }
 
-        public string GetActiveUser()
+       public RAIdentityUser GetActiveUser(string username)
         {
-            throw new NotImplementedException();
+            var user = Context.Users.Where(u => u.Email == username).FirstOrDefault();
+            return user;
         }
+
     }
 }

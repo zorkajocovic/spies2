@@ -9,7 +9,7 @@ namespace RentApp.Persistance.Repository
 {
     public interface IAppUserRepository : IRepository<AppUser, int>
     {
-        string GetActiveUser();
+        AppUser GetActiveUser(string username);
         int GetActiveUserId(string username);
     }
 }

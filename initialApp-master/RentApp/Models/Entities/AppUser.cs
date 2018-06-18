@@ -17,7 +17,7 @@ namespace RentApp.Models.Entities
         public string Image { get; set; }
         
 
-        public virtual ICollection<Vehicle> Vehicles { get; set; }
+       // public virtual ICollection<Vehicle> Vehicles { get; set; }
         public virtual ICollection<Service> Services { get; set; }
     }
 }

@@ -1,8 +1,8 @@
-export class AppUser{
+export class ActiveUser{
     fullName: string;
     email: string;
     dateOfBirth: string;
     role: string;
-    password: string;
-    confirmPassword: string;
+    image: string;
+    phone: string;
 }

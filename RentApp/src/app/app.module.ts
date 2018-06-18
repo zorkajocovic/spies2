@@ -80,8 +80,11 @@ const Routes= [
   {
     path: "make-branch/:Id",
     component: MakeBranchComponent
-  }
-
+  },
+  {
+    path: "make-vehicle/:Id",
+    component: MakeVehicleComponent
+  },
 ]
 
 @NgModule({
