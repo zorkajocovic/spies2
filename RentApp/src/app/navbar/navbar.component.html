@@ -24,6 +24,11 @@
       </div>
     </ul>
     <div *ngIf="loggedIn">
+      <form class="form-inline my-2 my-md-0">
+        <a class="nav-link" [routerLink]="['/profile']">Moj Profil</a>
+      </form>
+    </div>
+    <div *ngIf="loggedIn">
       <form class="form-inline my-2 my-md-0" (ngSubmit)="logOut()">
         <input type="submit" value="Odjavi se">
       </form>

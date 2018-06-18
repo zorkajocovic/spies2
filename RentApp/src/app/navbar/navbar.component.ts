@@ -14,17 +14,14 @@ export class NavbarComponent implements OnInit {
   
   constructor(private logged: IsSomeLogged, private service: DemoServiceService) {
     this.service.currentLoginState.subscribe(loggedIn => this.loggedIn = loggedIn);
-
    }
 
   ngOnInit() {
     this.loggedIn = this.logged.canActivate();
   }
 
-  
 logOut(){
-  debugger
-  localStorage.removeItem('jwt')
+  localStorage.removeItem('jwt');
   localStorage.removeItem('role');
   this.loggedIn = this.logged.canActivate();
 

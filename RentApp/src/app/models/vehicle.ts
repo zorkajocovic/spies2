@@ -1,8 +1,10 @@
 export class Vehicle {
+    TypeId: number;
+    ServiceId: number;
     Model: string;
     Producer: string;
-    ProducerYear: number;
+    ProductionYear: number;
     Description: string;
     Image: string;
-
+    Available: boolean;
 }

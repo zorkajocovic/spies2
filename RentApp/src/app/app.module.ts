@@ -1,10 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, makeStateKey } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/demo.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -13,16 +14,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ServicesComponent } from './services/services.component';
 import { DemoServiceService } from './demoService/demo-service.service';
-import { HttpClientModule } from '@angular/common/http';
 import { VehiclesComponent } from './vehicles/vehicles.component';
-<<<<<<< HEAD
 import { VehiclesReserveComponent } from './vehicles-reserve/vehicles-reserve.component'
-=======
+import { ProfileComponent } from './profile/profile.component';
 import { IsSomeLogged } from './guard/auth.logged';
 import { IsAdmin } from './guard/auth.admin';
 import { IsManager } from './guard/auth.manager';
 import { IsClient } from './guard/auth.client';
->>>>>>> c6202348249524627f497f46aaf93addd9247af1
+import { MakeServiceComponent } from './make-service/make-service.component';
+import { BranchOfficeComponent } from './branch-office/branch-office.component';
+import { MakeBranchComponent } from './make-branch/make-branch.component';
+import { MakeVehicleComponent } from './make-vehicle/make-vehicle.component';
 
 
 const ChildRoutes =
@@ -53,17 +55,36 @@ const Routes= [
     path: "services",
     component: ServicesComponent
   },
+
   {
-    path: "vehicles",
-<<<<<<< HEAD
+    path: "services/:Id",
     component: VehiclesComponent,
     children: ChildRoutes
-  }
-=======
-    component: VehiclesComponent
   },
- 
->>>>>>> c6202348249524627f497f46aaf93addd9247af1
+
+  {
+    path: "branches/:Id",
+    component: BranchOfficeComponent
+  },
+
+  {
+    path: "profile",
+    component: ProfileComponent
+  },
+
+  {
+    path: "make-service",
+    component: MakeServiceComponent
+  },
+
+  {
+    path: "make-branch/:Id",
+    component: MakeBranchComponent
+  },
+  {
+    path: "make-vehicle/:Id",
+    component: MakeVehicleComponent
+  },
 ]
 
 @NgModule({
@@ -75,7 +96,12 @@ const Routes= [
     HomeComponent,
     ServicesComponent,
     VehiclesComponent,
+    ProfileComponent,
     VehiclesReserveComponent,
+    MakeServiceComponent,
+    BranchOfficeComponent,
+    MakeBranchComponent,
+    MakeVehicleComponent
     ],
   imports: [
     BrowserModule,

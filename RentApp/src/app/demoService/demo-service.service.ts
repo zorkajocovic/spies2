@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 
 import { Observable, BehaviorSubject } from 'rxjs';    //nije moglo da se ukljuci iz 'rxjs/Observable'
 import { AppUser } from '../models/AppUser.model'
-import { LoginModel } from '../models/login-model';
 //import 'rxjs/add/operator/catch';
 //import 'rxjs/add/operator/map';
 
@@ -25,29 +24,26 @@ export class DemoServiceService {
   changeLoginState(state: boolean){
     this.messageSource.next(state);
   }
-
-   getMethodDemo(path): Observable<any> {
+  
+  getMethodDemo(path): Observable<any> {
     return this.httpClient.get(path);
   }
-
-  getMethodDemo1(): Observable<any> {
-    return this.httpClient.get('http://localhost:51683/api/Vehicles');
+  
+  postMethodDemo(path, newMember): Observable<any> {
+    debugger
+    return this.httpClient.post(path, newMember)
   }
 
-  postMethodDemo(newMember): Observable<any> {
-    return this.httpClient.post("http://localhost:51683/api/Account/Register", newMember)
-  }
-
-  getTheToken(user: LoginModel){
+  getTheToken(user){
 
     let headers = new HttpHeaders();
     headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
     
     if(!localStorage.jwt)
     {
-       let x = this.httpClient.post('http://localhost:51683/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
+       let x = this.httpClient.post('http://localhost:51111/oauth/token',`username=${user.username}&password=${user.password}&grant_type=password`, {"headers": headers}) as Observable<any>
 
-      x.subscribe(
+    x.subscribe(
         res => {
           console.log(res.access_token);
           
@@ -61,7 +57,6 @@ export class DemoServiceService {
 
           localStorage.setItem('jwt', jwt)
           localStorage.setItem('role', role);
-        //  alert("Uspjesno ste se ulogovali!");
 
           this.changeLoginState(true);
           this.router.navigate(['services']);
