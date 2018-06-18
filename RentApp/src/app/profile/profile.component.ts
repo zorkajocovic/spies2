@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { DemoServiceService } from '../demoService/demo-service.service';
 import { ActiveUser } from '../models/ActiveUser.model';
+=======
+>>>>>>> 36b94d7c0d276a71259d6d029e47cbd1ccf4685c
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+<<<<<<< HEAD
 
 export class ProfileComponent implements OnInit {
 
@@ -23,4 +27,13 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
  
+=======
+export class ProfileComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+>>>>>>> 36b94d7c0d276a71259d6d029e47cbd1ccf4685c
 }

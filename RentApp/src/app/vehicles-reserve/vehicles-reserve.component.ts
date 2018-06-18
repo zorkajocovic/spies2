@@ -36,8 +36,11 @@ export class VehiclesReserveComponent implements OnInit {
     this.service.getMethodDemo(path).subscribe(
       data => {
         this.BranchOffices = data;
+<<<<<<< HEAD
         this.Branchoffice = data[0].BranchOfficeID;
         this.Branchoffice1 = data[0].BranchOfficeID;
+=======
+>>>>>>> 36b94d7c0d276a71259d6d029e47cbd1ccf4685c
       },
       error => {
         alert("nije uspelo")
@@ -49,10 +52,15 @@ export class VehiclesReserveComponent implements OnInit {
   ReservationData(dataForm: Reservation, form: NgForm) {
 
     this.service.getMethodDemo("http://localhost:51111/api/GetActiveUserId").subscribe(
+<<<<<<< HEAD
       data => {
         
         this.UserId = data;
         debugger
+=======
+    data => {
+        this.UserId = data;
+>>>>>>> 36b94d7c0d276a71259d6d029e47cbd1ccf4685c
         dataForm.ClientID = this.UserId;
         dataForm.VehicleID = this.vehicleId; 
         dataForm.GetBranchId = this.Branchoffice;       
@@ -60,7 +68,10 @@ export class VehiclesReserveComponent implements OnInit {
         
         this.service.postMethodDemo("http://localhost:51111/api/Reservation", dataForm).subscribe(
           data => {
+<<<<<<< HEAD
             debugger
+=======
+>>>>>>> 36b94d7c0d276a71259d6d029e47cbd1ccf4685c
             this.BranchOffices = data;
           },
           error => {

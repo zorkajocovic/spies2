@@ -32,8 +32,9 @@ const ChildRoutes =
     {
       path: "vehicles-reserve",
       component: VehiclesReserveComponent
-    },
+    }    
   ]
+
 
 const Routes= [
   {
@@ -53,7 +54,8 @@ const Routes= [
 
   {
     path: "services",
-    component: ServicesComponent
+    component: ServicesComponent,
+
   },
 
   {
@@ -80,11 +82,16 @@ const Routes= [
   {
     path: "make-branch/:Id",
     component: MakeBranchComponent
+<<<<<<< HEAD
   },
   {
     path: "make-vehicle/:Id",
     component: MakeVehicleComponent
   },
+=======
+  }
+
+>>>>>>> 36b94d7c0d276a71259d6d029e47cbd1ccf4685c
 ]
 
 @NgModule({
@@ -101,7 +108,11 @@ const Routes= [
     MakeServiceComponent,
     BranchOfficeComponent,
     MakeBranchComponent,
+<<<<<<< HEAD
     MakeVehicleComponent
+=======
+    MakeVehicleComponent,
+>>>>>>> 36b94d7c0d276a71259d6d029e47cbd1ccf4685c
     ],
   imports: [
     BrowserModule,

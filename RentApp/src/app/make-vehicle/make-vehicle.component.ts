@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { VehicleType } from '../models/vehicle-type';
 import { DemoServiceService } from '../demoService/demo-service.service';
 import { Vehicle } from '../models/vehicle';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+=======
+import { VehicleType } from '../vehicle-type';
+import { DemoServiceService } from '../demoService/demo-service.service';
+>>>>>>> 36b94d7c0d276a71259d6d029e47cbd1ccf4685c
 
 @Component({
   selector: 'app-make-vehicle',
@@ -14,6 +19,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class MakeVehicleComponent implements OnInit {
 
   types: VehicleType[];
+<<<<<<< HEAD
   url: string;
   selectedFile: string;
   selectedType: number = -1;
@@ -106,4 +112,19 @@ export class MakeVehicleComponent implements OnInit {
 
     form.reset();
   }
+=======
+
+  constructor(private service: DemoServiceService) { 
+    this.service.getMethodDemo("http://localhost:51111/api/VehicleType").subscribe(
+      data => {
+        this.types = data;
+      })
+  }
+
+
+  ngOnInit() {
+  }
+
+
+>>>>>>> 36b94d7c0d276a71259d6d029e47cbd1ccf4685c
 }
